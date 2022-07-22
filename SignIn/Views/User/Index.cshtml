@@ -1,0 +1,48 @@
+﻿@model List<SignIn.Models.UserTask>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@Html.Raw(TempData["LoginSuccessMessage"]);
+
+<h2>Index</h2>
+
+<h3>Welcome @Session["UserName"]</h3>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Task Name</th>
+            <th scope="col">Assign To</th>
+            <th scope="col">Description</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) { 
+        <tr>
+            
+            <td>@item.TaskName</td>
+            <td>@item.AssignTo</td>
+            <td>@item.Description</td>
+            <td>@item.StartDate</td>
+            <td>@item.EndDate</td>
+
+        </tr>
+        
+        }
+           
+        
+
+    </tbody>
+</table>
+
+
+
+<h4>@Html.ActionLink("Logout", "Logout", "User")    </h4>
+
